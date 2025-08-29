@@ -176,7 +176,7 @@ const ProductCard = ({ product, searchResult }: ProductCardProps) => {
                 <Badge
                   variant="destructive"
                   className="text-xs"
-                  style={{ backgroundColor: colors.global.turmericGold }}
+                  style={{ backgroundColor: colors.interactive.primary }}
                 >
                   {product.pricing.discount_percentage}% OFF
                 </Badge>
@@ -375,7 +375,7 @@ export default function ProductsPage() {
           >
             <h1
               className="text-4xl font-bold mb-4"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
               All Products
             </h1>

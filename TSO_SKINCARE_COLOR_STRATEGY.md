@@ -1,4 +1,4 @@
-# Tso Skincare - Nature-Inspired Website Color Strategy
+# Tso - Nature-Inspired Website Color Strategy
 
 ## 🎨 Color Philosophy
 
@@ -276,4 +276,4 @@ All color combinations maintain WCAG AA accessibility standards:
 
 ---
 
-*This color strategy ensures Tso Skincare's digital presence reflects the premium, nature-inspired, and scientifically-backed brand values while maintaining excellent user experience and accessibility standards.*
+*This color strategy ensures Tso's digital presence reflects the premium, nature-inspired, and scientifically-backed brand values while maintaining excellent user experience and accessibility standards.*

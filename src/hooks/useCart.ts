@@ -7,15 +7,26 @@ export const useCart = () => {
   const cart = useSelector((state: RootState) => state.cart)
 
   const handleAddToCart = (product: {
-    id: string
+    id: string // This will be the product ID
     name: string
     price: number
     image?: string
     category: string
     size?: string
     sku: string
+    quantity?: number
   }) => {
-    dispatch(addToCart(product))
+    // Add productId field and keep id as the original product ID for the cart slice
+    const cartProduct = {
+      ...product,
+      productId: product.id, // Store original product ID
+    }
+    dispatch(addToCart(cartProduct))
+    
+    // Auto-open cart sidebar for immediate feedback (Amazon-style)
+    setTimeout(() => {
+      dispatch(openCart())
+    }, 100)
   }
 
   const handleRemoveFromCart = (id: string) => {

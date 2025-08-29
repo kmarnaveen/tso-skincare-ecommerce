@@ -29,7 +29,7 @@ export default function ProductNotFound() {
               <div className="text-8xl font-bold text-gray-300 mb-4">404</div>
             </motion.div>
 
-            <h1 className="text-3xl font-bold mb-4" style={{ color: colors.global.charcoalGrey }}>
+            <h1 className="text-3xl font-bold mb-4" style={{ color: colors.text.primary }}>
               Product Not Found
             </h1>
             
@@ -42,7 +42,7 @@ export default function ProductNotFound() {
               <Link href="/products">
                 <Button 
                   className="flex items-center gap-2 text-white"
-                  style={{ backgroundColor: colors.global.turmericGold }}
+                  style={{ backgroundColor: colors.brand.goldenDawn }}
                 >
                   <ArrowLeft className="h-4 w-4" />
                   Back to Products
@@ -71,7 +71,7 @@ export default function ProductNotFound() {
               transition={{ delay: 0.5 }}
               className="mt-12 p-6 bg-gray-50 rounded-xl"
             >
-              <h3 className="text-lg font-semibold mb-4" style={{ color: colors.global.charcoalGrey }}>
+              <h3 className="text-lg font-semibold mb-4" style={{ color: colors.text.primary }}>
                 What you can do:
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">

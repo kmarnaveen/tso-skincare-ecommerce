@@ -143,7 +143,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 <Badge
                   variant="destructive"
                   className="text-xs"
-                  style={{ backgroundColor: colors.global.turmericGold }}
+                  style={{ backgroundColor: colors.brand.goldenDawn }}
                 >
                   {product.pricing.discount_percentage}% OFF
                 </Badge>
@@ -233,7 +233,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div
       className="min-h-screen"
-      style={{ backgroundColor: colors.global.offWhite }}
+      style={{ backgroundColor: colors.brand.mistWhite }}
     >
       <Navigation />
 
@@ -258,7 +258,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       <section
         className="py-16 px-4"
         style={{
-          background: `linear-gradient(135deg, ${categoryColors.lighter} 0%, ${colors.global.offWhite} 100%)`,
+          background: `linear-gradient(135deg, ${categoryColors.lighter} 0%, ${colors.brand.mistWhite} 100%)`,
         }}
       >
         <div className="max-w-6xl mx-auto">
@@ -276,7 +276,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
             <h1
               className="text-4xl font-bold mb-4"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
               {categoryName} Collection
             </h1>
@@ -302,7 +302,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       {/* Category Benefits */}
       <section
         className="py-12 px-4"
-        style={{ backgroundColor: colors.global.softSandBeige }}
+        style={{ backgroundColor: colors.brand.sandyBeige }}
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

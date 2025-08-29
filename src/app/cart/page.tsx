@@ -74,7 +74,7 @@ export default function CartPage() {
                 <Button
                   size="lg"
                   className="glass-morphism hover:glass-morphism-hover text-white"
-                  style={{ backgroundColor: colors.global.turmericGold }}
+                  style={{ backgroundColor: colors.brand.goldenDawn }}
                 >
                   Shop Now
                 </Button>
@@ -111,7 +111,21 @@ export default function CartPage() {
                     >
                       <div className="flex gap-6">
                         {/* Product Image */}
-                        <div className="w-24 h-24 bg-gradient-to-br from-sage-green/20 to-soft-sand-beige/20 rounded-lg flex-shrink-0" />
+                        <div className="w-24 h-24 bg-gradient-to-br from-sage-green/20 to-soft-sand-beige/20 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden">
+                          {item.image ? (
+                            <img 
+                              src={item.image} 
+                              alt={item.name}
+                              className="w-full h-full object-cover rounded-lg"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                          ) : (
+                            <div className="text-xs text-gray-400 text-center px-2">Product Image</div>
+                          )}
+                        </div>
 
                         <div className="flex-1">
                           <div className="flex items-start justify-between mb-2">
@@ -143,8 +157,9 @@ export default function CartPage() {
                                 size="sm"
                                 className="w-8 h-8 p-0"
                                 onClick={() =>
-                                  updateQuantity(item.id, item.quantity - 1)
+                                  updateQuantity(item.id, Math.max(0, item.quantity - 1))
                                 }
+                                disabled={item.quantity <= 1}
                               >
                                 <Minus className="w-3 h-3" />
                               </Button>
@@ -158,6 +173,7 @@ export default function CartPage() {
                                 onClick={() =>
                                   updateQuantity(item.id, item.quantity + 1)
                                 }
+                                disabled={item.quantity >= 99}
                               >
                                 <Plus className="w-3 h-3" />
                               </Button>
@@ -165,7 +181,7 @@ export default function CartPage() {
                             <div className="text-right">
                               <p
                                 className="font-semibold text-lg"
-                                style={{ color: colors.global.turmericGold }}
+                                style={{ color: colors.brand.goldenDawn }}
                               >
                                 ₹{(item.price * item.quantity).toFixed(2)}
                               </p>
@@ -207,7 +223,7 @@ export default function CartPage() {
                   <hr className="border-gray-200" />
                   <div className="flex justify-between text-lg font-semibold">
                     <span>Total</span>
-                    <span style={{ color: colors.global.turmericGold }}>
+                    <span style={{ color: colors.brand.goldenDawn }}>
                       ₹{finalTotal.toFixed(2)}
                     </span>
                   </div>
@@ -215,7 +231,7 @@ export default function CartPage() {
                   <Button
                     size="lg"
                     className="w-full mt-6 text-white font-medium glass-morphism hover:glass-morphism-hover"
-                    style={{ backgroundColor: colors.global.turmericGold }}
+                    style={{ backgroundColor: colors.brand.goldenDawn }}
                   >
                     Proceed to Checkout
                   </Button>

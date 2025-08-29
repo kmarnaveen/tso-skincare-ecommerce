@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tso Skincare - Nature-Inspired Skincare Solutions",
-  description: "Premium skincare products with nature-inspired ingredients for modern urban living.",
+  title: "Tso - Nature-Inspired Skincare Solutions",
+  description:
+    "Premium skincare products with nature-inspired ingredients for modern urban living.",
 };
 
 export default function RootLayout({

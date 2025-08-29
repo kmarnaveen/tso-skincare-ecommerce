@@ -1,17 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+
+// UI Components
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+// Layout Components
 import { Navigation, Footer } from "@/components/website-layouts";
+
+// Icons
 import {
   Star,
   ShoppingCart,
@@ -22,8 +24,12 @@ import {
   ArrowLeft,
   Plus,
   Minus,
+  Share2,
 } from "lucide-react";
+
+// Utils and Hooks
 import { colors } from "@/styles/colors";
+import { useCart } from "@/hooks/useCart";
 import {
   getProductBySlug,
   getDefaultVariant,
@@ -34,10 +40,6 @@ import {
   type Product,
   type ProductVariant,
 } from "@/lib/products";
-import { useCart } from "@/hooks/useCart";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { useState, useEffect } from "react";
 
 interface ProductDetailPageProps {
   params: Promise<{
@@ -49,11 +51,9 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const resolvedParams = React.use(params);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
-    null
-  );
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
+  
   const { addToCart } = useCart();
-
   const product = getProductBySlug(resolvedParams.slug);
 
   if (!product) {
@@ -69,11 +69,13 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     }
   }, [selectedVariant, defaultVariant]);
 
+  // Computed values
   const currentVariant = selectedVariant || defaultVariant;
   const availableSizes = getAvailableSizes(product);
   const currentPrice = getProductPrice(product, currentVariant?.sku);
   const inStock = isProductInStock(product, currentVariant?.sku);
 
+  // Handlers
   const handleVariantChange = (size: string) => {
     const variant = getVariantBySize(product, size);
     if (variant) {
@@ -84,24 +86,24 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const handleAddToCart = () => {
     if (!currentVariant || !inStock) return;
 
-    for (let i = 0; i < quantity; i++) {
-      addToCart({
-        id: product.id,
-        name: product.name,
-        price: currentPrice.selling_price,
-        category: product.category.primary,
-        size: currentVariant.size,
-        sku: currentVariant.sku,
-        image: product.images?.primary,
-      });
-    }
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: currentPrice.selling_price,
+      category: product.category.primary,
+      size: currentVariant.size,
+      sku: currentVariant.sku,
+      image: product.images?.primary,
+      quantity: quantity,
+    });
     setQuantity(1);
   };
 
+  // Product colors
   const getCategoryKey = (category: string) => {
     const categoryMap: { [key: string]: string } = {
       Cleanser: "cleanser",
-      Serum: "serum",
+      Serum: "serum", 
       Moisturizer: "moisturizer",
       Sunscreen: "sunscreen",
     };
@@ -109,14 +111,12 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   };
 
   const categoryKey = getCategoryKey(product.category.primary);
-  const productColors =
-    colors.products[categoryKey as keyof typeof colors.products] ||
-    colors.products.cleanser;
+  const productColors = colors.products[categoryKey as keyof typeof colors.products] || colors.products.cleanser;
 
   return (
     <div
       className="min-h-screen"
-      style={{ backgroundColor: colors.global.systemGrey6 }}
+      style={{ backgroundColor: colors.surfaces.secondary }}
     >
       <Navigation />
 
@@ -225,8 +225,8 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       <section
         className="py-4 px-4 border-b"
         style={{
-          backgroundColor: colors.global.offWhite,
-          borderColor: colors.global.separatorLight,
+          backgroundColor: colors.brand.mistWhite,
+          borderColor: colors.surfaces.border,
         }}
       >
         <div className="max-w-6xl mx-auto">
@@ -238,7 +238,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             >
               Home
             </Link>
-            <span style={{ color: colors.global.systemGrey }}>/</span>
+            <span style={{ color: colors.text.secondary }}>/</span>
             <Link
               href="/products"
               className="hover:opacity-80 transition-opacity"
@@ -246,8 +246,8 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             >
               Products
             </Link>
-            <span style={{ color: colors.global.systemGrey }}>/</span>
-            <span style={{ color: colors.global.charcoalGrey }}>
+            <span style={{ color: colors.text.secondary }}>/</span>
+            <span style={{ color: colors.text.primary }}>
               {product.name}
             </span>
           </div>
@@ -265,7 +265,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 className="aspect-square rounded-2xl overflow-hidden"
                 style={{
-                  backgroundColor: colors.global.offWhite,
+                  backgroundColor: colors.brand.mistWhite,
                   boxShadow: colors.elevation.card,
                 }}
               >
@@ -321,7 +321,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
                 <h1
                   className="text-3xl md:text-4xl font-bold mb-3"
-                  style={{ color: colors.global.charcoalGrey }}
+                  style={{ color: colors.text.primary }}
                 >
                   {product.name}
                 </h1>
@@ -350,7 +350,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   </div>
                   <p
                     className="font-medium text-lg leading-relaxed"
-                    style={{ color: colors.global.charcoalGrey }}
+                    style={{ color: colors.text.primary }}
                   >
                     {product.category.tags[0]?.replace("-", " ")} • Visible
                     results in 7 days • No sticky feeling
@@ -401,7 +401,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   <div className="flex items-center gap-4">
                     <span
                       className="text-3xl md:text-4xl font-bold"
-                      style={{ color: colors.global.charcoalGrey }}
+                      style={{ color: colors.text.primary }}
                     >
                       ₹{currentPrice.selling_price}
                     </span>
@@ -409,7 +409,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                       <>
                         <span
                           className="text-xl md:text-2xl line-through opacity-60"
-                          style={{ color: colors.global.systemGrey }}
+                          style={{ color: colors.text.secondary }}
                         >
                           ₹{currentPrice.mrp}
                         </span>
@@ -488,7 +488,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                       </h3>
                       <p
                         className="text-sm leading-relaxed"
-                        style={{ color: colors.global.charcoalGrey }}
+                        style={{ color: colors.text.primary }}
                       >
                         Start with our most popular size (50ml) - perfect for
                         6-8 weeks of daily use.
@@ -509,7 +509,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   <div className="mb-6">
                     <label
                       className="block text-lg font-semibold mb-3"
-                      style={{ color: colors.global.charcoalGrey }}
+                      style={{ color: colors.text.primary }}
                     >
                       Choose Size
                     </label>
@@ -529,11 +529,11 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                               border: `2px solid ${
                                 isSelected
                                   ? productColors.primary
-                                  : colors.global.systemGrey5
+                                  : colors.text.secondary5
                               }`,
                               backgroundColor: isSelected
                                 ? `${productColors.primary}08`
-                                : colors.global.offWhite,
+                                : colors.brand.mistWhite,
                               boxShadow: isSelected
                                 ? colors.elevation.card
                                 : colors.elevation.card,
@@ -548,7 +548,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                                     border: `3px solid ${
                                       isSelected
                                         ? productColors.primary
-                                        : colors.global.systemGrey
+                                        : colors.text.secondary
                                     }`,
                                     backgroundColor: isSelected
                                       ? productColors.primary
@@ -559,7 +559,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                                   <span
                                     className="font-semibold text-lg"
                                     style={{
-                                      color: colors.global.charcoalGrey,
+                                      color: colors.text.primary,
                                     }}
                                   >
                                     {size}
@@ -580,14 +580,14 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                               <div className="text-right">
                                 <div
                                   className="font-bold text-lg"
-                                  style={{ color: colors.global.charcoalGrey }}
+                                  style={{ color: colors.text.primary }}
                                 >
                                   ₹{priceForSize.selling_price}
                                 </div>
                                 {size === "50ml" && (
                                   <div
                                     className="text-xs"
-                                    style={{ color: colors.global.systemGrey }}
+                                    style={{ color: colors.text.secondary }}
                                   >
                                     6-8 weeks supply
                                   </div>
@@ -606,7 +606,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   <div className="mb-6">
                     <label
                       className="block text-lg font-semibold mb-3"
-                      style={{ color: colors.global.charcoalGrey }}
+                      style={{ color: colors.text.primary }}
                     >
                       Size
                     </label>
@@ -656,7 +656,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                           Only {currentVariant.inventory.stock_quantity} left!
                           <span
                             className="ml-1"
-                            style={{ color: colors.global.charcoalGrey }}
+                            style={{ color: colors.text.primary }}
                           >
                             67 people viewed this in the last 24 hours
                           </span>
@@ -673,7 +673,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                     style={{
                       backgroundColor: inStock
                         ? productColors.primary
-                        : colors.global.systemGrey,
+                        : colors.text.secondary,
                       opacity: inStock ? 1 : 0.6,
                       boxShadow: inStock ? colors.elevation.card : "none",
                     }}
@@ -720,7 +720,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   <div className="mb-6">
                     <label
                       className="block text-lg font-semibold mb-3"
-                      style={{ color: colors.global.charcoalGrey }}
+                      style={{ color: colors.text.primary }}
                     >
                       Size
                     </label>
@@ -765,7 +765,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 <div className="mb-6">
                   <label
                     className="block text-lg font-semibold mb-3"
-                    style={{ color: colors.global.charcoalGrey }}
+                    style={{ color: colors.text.primary }}
                   >
                     Quantity
                   </label>
@@ -806,25 +806,15 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   </div>
                 </div>
 
-                {/* Add to Cart & Actions */}
+                {/* Secondary Actions */}
                 <div className="flex gap-4">
-                  <Button
-                    size="lg"
-                    className="flex-1 text-white font-semibold text-lg py-4"
-                    style={{
-                      backgroundColor: inStock
-                        ? productColors.primary
-                        : "#9CA3AF",
-                      opacity: inStock ? 1 : 0.6,
-                    }}
-                    onClick={handleAddToCart}
-                    disabled={!inStock || !currentVariant}
-                  >
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    {inStock ? "Add to Cart" : "Out of Stock"}
+                  <Button variant="outline" size="lg" className="flex-1">
+                    <Heart className="mr-2 h-5 w-5" />
+                    Save for Later
                   </Button>
-                  <Button variant="outline" size="lg" className="px-6">
-                    <Heart className="h-5 w-5" />
+                  <Button variant="outline" size="lg" className="flex-1">
+                    <Share2 className="mr-2 h-5 w-5" />
+                    Share
                   </Button>
                 </div>
               </motion.div>
@@ -874,7 +864,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               >
                 <h3
                   className="text-lg font-semibold mb-4"
-                  style={{ color: colors.global.charcoalGrey }}
+                  style={{ color: colors.text.primary }}
                 >
                   Clinically Proven Results
                 </h3>
@@ -934,7 +924,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               >
                 <h3
                   className="text-lg font-semibold mb-4"
-                  style={{ color: colors.global.charcoalGrey }}
+                  style={{ color: colors.text.primary }}
                 >
                   Perfect for Your Routine
                 </h3>
@@ -974,7 +964,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               >
                 <h3
                   className="text-lg font-semibold mb-4"
-                  style={{ color: colors.global.charcoalGrey }}
+                  style={{ color: colors.text.primary }}
                 >
                   Star Ingredients
                 </h3>
@@ -1154,7 +1144,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             <div className="text-center mb-8">
               <h2
                 className="text-2xl font-bold mb-3"
-                style={{ color: colors.global.charcoalGrey }}
+                style={{ color: colors.text.primary }}
               >
                 🧬 Your Personalized Routine
               </h2>
@@ -1327,7 +1317,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       {/* Enhanced Product Details */}
       <section
         className="py-16 px-4"
-        style={{ backgroundColor: colors.global.softSandBeige }}
+        style={{ backgroundColor: colors.brand.sandyBeige }}
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -1401,7 +1391,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   <div>
                     <h4
                       className="font-semibold mb-4 text-lg"
-                      style={{ color: colors.global.charcoalGrey }}
+                      style={{ color: colors.text.primary }}
                     >
                       ⭐ Hero Ingredients
                     </h4>
@@ -1441,7 +1431,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                   <div>
                     <h4
                       className="font-semibold mb-4 text-lg"
-                      style={{ color: colors.global.charcoalGrey }}
+                      style={{ color: colors.text.primary }}
                     >
                       🌿 Complete INCI List
                     </h4>
@@ -1661,7 +1651,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       {/* Smart Subscription - Never Run Out */}
       <section
         className="py-16 px-4"
-        style={{ backgroundColor: colors.global.offWhite }}
+        style={{ backgroundColor: colors.brand.mistWhite }}
       >
         <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden border-2 border-dashed border-green-300">
@@ -1807,12 +1797,12 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       {/* FAQ Section */}
       <section
         className="py-16 px-4"
-        style={{ backgroundColor: colors.global.offWhite }}
+        style={{ backgroundColor: colors.brand.mistWhite }}
       >
         <div className="max-w-4xl mx-auto">
           <h2
             className="text-3xl font-bold mb-8 text-center"
-            style={{ color: colors.global.charcoalGrey }}
+            style={{ color: colors.text.primary }}
           >
             Frequently Asked Questions
           </h2>
@@ -1849,7 +1839,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 <CardContent className="p-6">
                   <h3
                     className="font-semibold mb-3 text-lg"
-                    style={{ color: colors.global.charcoalGrey }}
+                    style={{ color: colors.text.primary }}
                   >
                     Q: {faq.question}
                   </h3>
@@ -1868,7 +1858,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         <div className="max-w-6xl mx-auto">
           <h2
             className="text-3xl font-bold mb-8 text-center"
-            style={{ color: colors.global.charcoalGrey }}
+            style={{ color: colors.text.primary }}
           >
             What Our Customers Say
           </h2>

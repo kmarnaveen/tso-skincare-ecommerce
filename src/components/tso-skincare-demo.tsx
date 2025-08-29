@@ -1,4 +1,4 @@
-// Tso Skincare Product Components
+// Tso Product Components
 "use client";
 
 import { motion } from "framer-motion";
@@ -234,7 +234,7 @@ const sampleProducts: DemoProduct[] = [
   {
     id: "2",
     name: "Hydrating Moisture Serum",
-    category: "hydratingSerum",
+    category: "serum",
     price: 45,
     rating: 4.9,
     description:
@@ -244,7 +244,7 @@ const sampleProducts: DemoProduct[] = [
   {
     id: "3",
     name: "Brightening Vitamin C Serum",
-    category: "brighteningSerum",
+    category: "serum",
     price: 52,
     rating: 4.7,
     description: "Potent vitamin C serum for radiant, even-toned skin.",
@@ -283,13 +283,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       serum: Droplets,
       moisturizer: Sparkles,
       sunscreen: Sun,
-      hydratingSerum: Droplets,
-      brighteningSerum: Sparkles,
-      oilFreeMoisturizer: Droplets,
-      acneControl: Shield,
-      antiAging: Star,
-      soothing: Leaf,
-      darkSpot: Sparkles,
+      treatment: Star,
     };
     return iconMap[category] || Leaf;
   };
@@ -429,7 +423,7 @@ const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-5xl md:text-7xl font-bold mb-8 text-white leading-tight"
             >
-              Science Meets Nature
+              Born from the Clarity of Himalayan Waters
             </motion.h1>
 
             <motion.p
@@ -438,8 +432,10 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-2xl mx-auto md:mx-0"
             >
-              Discover our nature-inspired skincare collection, where botanical
-              wisdom meets scientific innovation for radiant, healthy skin.
+              At TSO, we bring together the untouched serenity of Ladakh's Tso
+              Moriri Lake and the strength of modern dermatology. Each product
+              is crafted to honor your skin's natural rhythm — calm,
+              transparent, and enduringly strong.
             </motion.p>
 
             {/* Hero Search Bar */}
@@ -502,11 +498,11 @@ const HeroSection = () => {
                   className="text-white font-semibold px-8 py-4 rounded-2xl border-0 transition-all duration-200 hover:scale-105"
                   style={{
                     backgroundColor: colors.semantic.success,
-                    boxShadow: colors.elevation.card,
+                    boxShadow: colors.elevation.medium,
                   }}
                 >
                   <ShoppingCart className="mr-2 h-5 w-5" />
-                  Explore Collection
+                  Discover Your Ritual
                 </Button>
               </Link>
               <Button
@@ -514,7 +510,7 @@ const HeroSection = () => {
                 className="bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-2xl border-2 border-white/30 hover:bg-white/30 transition-all duration-200"
               >
                 <Heart className="mr-2 h-5 w-5" />
-                Learn More
+                Learn Our Story
               </Button>
             </motion.div>
 
@@ -581,9 +577,9 @@ const CategoriesSection = () => {
   return (
     <section
       className="py-16 px-4 relative z-10"
-      style={{ 
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        backdropFilter: 'blur(10px)'
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.7)",
+        backdropFilter: "blur(10px)",
       }}
     >
       <div className="max-w-6xl mx-auto">
@@ -594,7 +590,7 @@ const CategoriesSection = () => {
         >
           <h2
             className="text-4xl font-bold mb-4"
-            style={{ color: colors.global.charcoalGrey }}
+            style={{ color: colors.text.primary }}
           >
             Shop by Category
           </h2>
@@ -631,7 +627,7 @@ const CategoriesSection = () => {
                   </div>
                   <h3
                     className="text-xl font-semibold mb-2"
-                    style={{ color: colors.global.charcoalGrey }}
+                    style={{ color: colors.text.primary }}
                   >
                     {category.name}
                   </h3>
@@ -646,26 +642,27 @@ const CategoriesSection = () => {
   );
 };
 
-// Main Tso Skincare Demo Component
+// Main Tso Demo Component
 export default function TsoSkincareDemo() {
   const featuredProducts = getFeaturedProducts(6);
 
   return (
     <div
       className="min-h-screen relative"
-      style={{ 
-        background: `linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)`
+      style={{
+        background: colors.gradients.hero,
       }}
     >
       <Navigation />
       <HeroSection />
+      <BrandPhilosophySection />
       <CategoriesSection />
 
       {/* Real Featured Products Section */}
       <section
         className="py-16 px-4"
-        style={{ 
-          background: `linear-gradient(135deg, #ffffff 0%, ${colors.products.moisturizer.lighter} 30%, #ffffff 100%)` 
+        style={{
+          background: colors.gradients.subtle,
         }}
       >
         <div className="max-w-6xl mx-auto">
@@ -676,13 +673,14 @@ export default function TsoSkincareDemo() {
           >
             <h2
               className="text-4xl font-bold mb-4"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
-              Best Sellers
+              Discover Rituals Born in the Himalayas
             </h2>
             <p className="text-lg text-gray-600">
-              Discover our most loved products crafted with nature&apos;s finest
-              ingredients
+              Each formulation is infused with the clarity of water, the
+              strength of minerals, and the wisdom of botanicals. Skincare
+              designed to restore balance — naturally and scientifically.
             </p>
           </motion.div>
 
@@ -704,7 +702,7 @@ export default function TsoSkincareDemo() {
               <Button
                 size="lg"
                 className="text-white font-medium px-8 py-3"
-                style={{ backgroundColor: colors.global.turmericGold }}
+                style={{ backgroundColor: colors.interactive.primary }}
               >
                 View All Products
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -717,8 +715,8 @@ export default function TsoSkincareDemo() {
       {/* Demo Products Section */}
       <section
         className="py-16 px-4"
-        style={{ 
-          background: `linear-gradient(135deg, ${colors.products.moisturizer.lighter} 0%, ${colors.global.offWhite} 50%, #ffffff 100%)` 
+        style={{
+          background: colors.gradients.card,
         }}
       >
         <div className="max-w-6xl mx-auto">
@@ -729,7 +727,7 @@ export default function TsoSkincareDemo() {
           >
             <h2
               className="text-4xl font-bold mb-4"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
               Product Experience Preview
             </h2>
@@ -756,40 +754,172 @@ export default function TsoSkincareDemo() {
       {/* Trust Indicators */}
       <TrustSection />
 
-      {/* Blog/Education Section */}
+      {/* Ingredients Philosophy Section */}
       <BlogSection />
+
+      {/* Closing CTA Section */}
+      <ClosingCTASection />
 
       <Footer />
     </div>
   );
 }
 
-// Trust Section Component
+// Brand Philosophy Section Component
+const BrandPhilosophySection = () => {
+  const philosophyItems = [
+    {
+      icon: Droplets,
+      title: "Serene Purity",
+      description: "Calm formulations that let your skin breathe",
+      color: colors.brand.glacialBlue,
+    },
+    {
+      icon: Shield,
+      title: "Empowered Transparency",
+      description: "Honest ingredients, clear results",
+      color: colors.brand.goldenDawn,
+    },
+    {
+      icon: Sparkles,
+      title: "Minimalist Strength",
+      description: "Powerful skincare without the clutter",
+      color: colors.brand.deepLakeBlue,
+    },
+    {
+      icon: Leaf,
+      title: "Nature Meets Science",
+      description: "Proven actives blended with Himalayan botanicals",
+      color: colors.products.treatment.primary,
+    },
+    {
+      icon: Users,
+      title: "Enduring Connection",
+      description: "A ritual that becomes timeless",
+      color: colors.text.primary,
+    },
+  ];
+
+  return (
+    <section
+      className="py-20 px-4"
+      style={{ backgroundColor: colors.surfaces.secondary }}
+    >
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6"
+            style={{ color: colors.text.primary }}
+          >
+            Where Nature Meets Science, Your Skin Finds Balance
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            From the golden dawns over Ladakh to the depth of its tranquil
+            lakes, TSO is inspired by nature's quiet resilience. Our philosophy
+            is rooted in:
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {philosophyItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="text-center bg-white/70 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/90 transition-all duration-300 border border-white/20"
+                style={{ animationDelay: `${index * 1}s` }}
+              >
+                <div
+                  className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
+                  style={{ backgroundColor: item.color + "20" }}
+                >
+                  <Icon className="w-8 h-8" style={{ color: item.color }} />
+                </div>
+                <h3
+                  className="text-xl font-semibold mb-3"
+                  style={{ color: colors.text.primary }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <Button
+            size="lg"
+            className="text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105"
+            style={{
+              backgroundColor: colors.brand.goldenDawn,
+              boxShadow:
+                colors.elevation?.medium || "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            Learn Our Story
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Trust Section Component (Updated)
 const TrustSection = () => {
   const trustItems = [
     {
-      icon: Users,
-      title: "50K+ Happy Customers",
-      description: "Join thousands who trust our skincare",
-      color: colors.products.soothing.primary,
+      icon: Shield,
+      title: "Rooted in Care",
+      description: "For you and the planet - minimal, recyclable packaging",
+      color: colors.products.treatment.primary,
     },
     {
       icon: Award,
-      title: "Quality Tested",
-      description: "Clinically proven formulations",
-      color: colors.products.brighteningSerum.primary,
+      title: "Ethically Sourced",
+      description: "Cruelty-free and made with uncompromising honesty",
+      color: colors.brand.goldenDawn,
     },
     {
       icon: Globe,
-      title: "Sustainable & Cruelty-Free",
-      description: "Ethically sourced ingredients",
-      color: colors.products.cleanser.primary,
+      title: "Light Footprint",
+      description:
+        "Just as Tso Moriri stands untouched, we believe in leaving a light footprint",
+      color: colors.brand.glacialBlue,
     },
   ];
 
   return (
     <section className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <h2
+            className="text-3xl font-bold mb-4"
+            style={{ color: colors.text.primary }}
+          >
+            Rooted in Care — For You and the Planet
+          </h2>
+        </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {trustItems.map((item, index) => {
             const Icon = item.icon;
@@ -811,7 +941,7 @@ const TrustSection = () => {
                 </div>
                 <h3
                   className="text-xl font-semibold mb-2"
-                  style={{ color: colors.global.charcoalGrey }}
+                  style={{ color: colors.text.primary }}
                 >
                   {item.title}
                 </h3>
@@ -831,7 +961,7 @@ const BlogSection = () => {
     {
       title: "The Science of Hydration",
       category: "Skincare Science",
-      categoryColor: colors.products.hydratingSerum.primary,
+      categoryColor: colors.products.serum.primary,
       excerpt:
         "Understanding how your skin maintains moisture and the role of hyaluronic acid.",
       readTime: "5 min read",
@@ -847,7 +977,7 @@ const BlogSection = () => {
     {
       title: "Your Daily Skincare Ritual",
       category: "Self-Care",
-      categoryColor: colors.products.soothing.primary,
+      categoryColor: colors.products.treatment.primary,
       excerpt:
         "Create a mindful morning routine that nourishes both skin and soul.",
       readTime: "4 min read",
@@ -857,8 +987,8 @@ const BlogSection = () => {
   return (
     <section
       className="py-16 px-4"
-      style={{ 
-        background: `linear-gradient(135deg, ${colors.products.moisturizer.lighter} 0%, #ffffff 50%, ${colors.products.moisturizer.lighter} 100%)` 
+      style={{
+        background: colors.gradients.subtle,
       }}
     >
       <div className="max-w-6xl mx-auto">
@@ -869,12 +999,15 @@ const BlogSection = () => {
         >
           <h2
             className="text-4xl font-bold mb-4"
-            style={{ color: colors.global.charcoalGrey }}
+            style={{ color: colors.text.primary }}
           >
-            Skincare Education
+            Ingredients That Speak With Transparency
           </h2>
           <p className="text-lg text-gray-600">
-            Learn about the science and art of healthy skin
+            We believe skincare should be both poetic and precise. Every
+            ingredient is carefully chosen, never hidden. Expect clarity: from
+            Himalayan spring water to Ladakh herbs and clinically backed
+            actives.
           </p>
         </motion.div>
 
@@ -909,7 +1042,7 @@ const BlogSection = () => {
                 <CardContent className="p-6">
                   <h3
                     className="text-xl font-semibold mb-3 group-hover:text-opacity-75"
-                    style={{ color: colors.global.charcoalGrey }}
+                    style={{ color: colors.text.primary }}
                   >
                     {post.title}
                   </h3>
@@ -925,6 +1058,82 @@ const BlogSection = () => {
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
+
+// Closing CTA Section Component
+const ClosingCTASection = () => {
+  return (
+    <section
+      className="py-20 px-4 relative overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${colors.brand.deepLakeBlue}15, ${colors.brand.glacialBlue}10)`,
+      }}
+    >
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6"
+            style={{ color: colors.text.primary }}
+          >
+            Begin Your Ritual of Clarity
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Skincare that feels like a deep breath by the lake — calm,
+            empowering, and enduring.
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <Link href="/products">
+              <Button
+                size="lg"
+                className="text-white font-semibold px-12 py-6 text-lg rounded-2xl transition-all duration-200 hover:scale-105"
+                style={{
+                  backgroundColor: colors.brand.goldenDawn,
+                  boxShadow: "0 8px 24px rgba(225, 168, 95, 0.3)",
+                }}
+              >
+                <Sparkles className="mr-3 h-6 w-6" />
+                Explore Now
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* Decorative elements */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2"
+        >
+          <div
+            className="w-32 h-32 rounded-full blur-3xl"
+            style={{ backgroundColor: colors.brand.glacialBlue + "20" }}
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2"
+        >
+          <div
+            className="w-24 h-24 rounded-full blur-2xl"
+            style={{ backgroundColor: colors.brand.goldenDawn + "25" }}
+          />
+        </motion.div>
       </div>
     </section>
   );

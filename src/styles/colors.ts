@@ -1,174 +1,166 @@
-// Tso Skincare Apple-Inspired Color Palette
+// Tso Design System - Inspired by Tso Moriri Lake
+// Sister brand to Ursa Major with serene purity and empowered transparency
+
 export const colors = {
-  // Global Brand Colors (Apple-inspired neutrals with bright accents)
-  global: {
-    // Backgrounds (Apple-style clean greys)
-    softSandBeige: "#F5F5F7", // Apple's signature light grey
-    offWhite: "#FBFBFD", // Ultra-clean white
-    systemGrey6: "#F2F2F7", // Apple's lightest system grey
-    systemGrey5: "#E5E5EA", // Apple's card backgrounds
+  // Primary Brand Colors (Inspired by Tso Moriri Lake & Ladakh landscape)
+  brand: {
+    deepLakeBlue: "#1E4A68", // Primary - calm, strength, depth of the lake
+    skyWhite: "#FFFFFF", // Backgrounds, purity, endless sky
+    sandyBeige: "#D9C7A2", // Neutrals, warmth of Ladakh sands
+    mountainStoneGray: "#8C8C89", // Typography, grounding mountain stone
+    goldenDawn: "#E1A85F", // Accents - sunlit peaks, golden highlights
 
-    // Typography (Apple's refined greys)
-    charcoalGrey: "#1C1C1E", // Apple's primary text color
-    systemGrey: "#8E8E93", // Apple's secondary text
-    systemGrey2: "#636366", // Apple's tertiary text
-
-    // Primary Actions (Bright, energetic colors)
-    turmericGold: "#FF9500", // Apple's vibrant orange
-    electricBlue: "#007AFF", // Apple's signature blue
-    emeraldGreen: "#30D158", // Apple's success green
-    crimsonRed: "#FF3B30", // Apple's error/alert red
-    royalPurple: "#AF52DE", // Apple's premium purple
-
-    // Highlights & Dividers
-    mistyBlue: "#007AFF", // Apple blue for interactive elements
-    separatorLight: "#C6C6C8", // Apple's separator color
-    separatorDark: "#38383A", // Dark mode separator
+    // Supporting palette for depth and variety
+    glacialBlue: "#2B5A7A", // Deeper blue for hierarchy
+    mistWhite: "#F8F9FA", // Soft background alternative
+    warmSand: "#E6D4B7", // Lighter sandy tone
+    coolStone: "#A8A8A5", // Lighter stone gray
+    sunriseGold: "#F4C27D", // Lighter golden accent
   },
 
-  // Product Category Colors (Apple-inspired with bright personalities)
+  // Typography colors following natural hierarchy
+  text: {
+    primary: "#1E4A68", // Deep lake blue for primary text
+    secondary: "#8C8C89", // Mountain stone gray for secondary
+    tertiary: "#A8A8A5", // Cool stone for tertiary text
+    inverse: "#FFFFFF", // White text on dark backgrounds
+    accent: "#E1A85F", // Golden dawn for highlighted text
+  },
+
+  // Interactive elements inspired by Himalayan landscape
+  interactive: {
+    primary: "#1E4A68", // Deep lake blue for primary buttons
+    primaryHover: "#2B5A7A", // Glacial blue on hover
+    secondary: "transparent", // Secondary button background
+    secondaryBorder: "#1E4A68", // Deep lake blue border
+    secondaryHover: "#D9C7A2", // Sandy beige hover for secondary
+    disabled: "#A8A8A5", // Cool stone for disabled state
+    focus: "#E1A85F", // Golden dawn for focus outlines
+  },
+
+  // Product category colors (inspired by Ladakh elements)
   products: {
     cleanser: {
-      primary: "#30D158", // Apple's vibrant green for freshness
-      light: "#ACEE82", // Lighter green tint
-      lighter: "#E8F8EC", // Ultra-light green background
-      accent: "#FF9500", // Orange accent for energy
-      background: "#F2F2F7", // Apple's neutral background
+      primary: "#2B5A7A", // Glacial blue for cleansing
+      light: "#4A7B9D", // Lighter glacial blue
+      lighter: "#E8F1F7", // Ultra-light blue background
+      accent: "#E1A85F", // Golden dawn accent
+      background: "#FFFFFF", // Pure white background
     },
     serum: {
-      primary: "#AF52DE", // Apple's purple for premium/science
-      secondary: "#FF9500", // Orange for energy boost
-      light: "#D7ACEE", // Lighter purple tint
-      lighter: "#F5EDFC", // Ultra-light purple background
-      accent: "#007AFF", // Blue accent for trust
-      background: "#F2F2F7",
+      primary: "#E1A85F", // Golden dawn for serums
+      light: "#F4C27D", // Sunrise gold
+      lighter: "#FDF6EC", // Ultra-light golden background
+      accent: "#1E4A68", // Deep lake blue accent
+      background: "#FFFFFF",
     },
     moisturizer: {
-      primary: "#007AFF", // Apple's blue for hydration
-      light: "#7AC7FF", // Lighter blue tint
-      lighter: "#E8F4FD", // Ultra-light blue background
-      accent: "#30D158", // Green accent for natural
-      background: "#F2F2F7",
+      primary: "#D9C7A2", // Sandy beige for moisturizers
+      light: "#E6D4B7", // Warm sand
+      lighter: "#F5F1E8", // Ultra-light sand background
+      accent: "#2B5A7A", // Glacial blue accent
+      background: "#FFFFFF",
     },
     sunscreen: {
-      primary: "#FF9500", // Apple's orange for sun protection
-      secondary: "#FFCC02", // Bright yellow for sunshine
-      light: "#FFB84D", // Lighter orange tint
-      lighter: "#FFF4E6", // Ultra-light orange background
-      accent: "#FF3B30", // Red accent for UV protection urgency
-      background: "#F2F2F7",
+      primary: "#E1A85F", // Golden dawn for sun protection
+      light: "#F4C27D", // Sunrise gold
+      lighter: "#FDF6EC", // Ultra-light golden background
+      accent: "#1E4A68", // Deep lake blue accent
+      background: "#FFFFFF",
     },
-    hydratingSerum: {
-      primary: "#007AFF", // Apple's blue for hydration
-      secondary: "#30D158", // Green for natural hydration
-      light: "#7AC7FF", // Lighter blue tint
-      lighter: "#F0F6F9",
-      accent: "#4A7C59",
-    },
-    brighteningSerum: {
-      primary: "#E6A600", // Turmeric Gold
-      lighter: "#E8F4FD", // Ultra-light blue background
-      accent: "#30D158", // Green accent for natural hydration
-      background: "#F2F2F7",
-    },
-    vitaminCSerum: {
-      primary: "#FFCC02", // Bright yellow for Vitamin C energy
-      secondary: "#FF9500", // Orange for vitality
-      light: "#FFE066", // Lighter yellow tint
-      lighter: "#FFF9E6", // Ultra-light yellow background
-      accent: "#30D158", // Green accent for natural
-      background: "#F2F2F7",
-    },
-    oilFreeMoisturizer: {
-      primary: "#30D158", // Apple's green for natural/oil-free
-      light: "#7DE680", // Lighter green tint
-      lighter: "#E8F8EC", // Ultra-light green background
-      accent: "#007AFF", // Blue accent for freshness
-      background: "#F2F2F7",
-    },
-    acneControl: {
-      primary: "#FF3B30", // Apple's red for problem-solving urgency
-      light: "#FF6B66", // Lighter red tint
-      lighter: "#FFEBEA", // Ultra-light red background
-      accent: "#30D158", // Green accent for healing
-      background: "#F2F2F7",
-    },
-    antiAging: {
-      primary: "#AF52DE", // Apple's purple for premium anti-aging
-      secondary: "#007AFF", // Blue for science/technology
-      light: "#D7ACEE", // Lighter purple tint
-      lighter: "#F5EDFC", // Ultra-light purple background
-      accent: "#FF9500", // Orange accent for energy
-      background: "#F2F2F7",
-    },
-    soothing: {
-      primary: "#FF6482", // Apple's pink for gentle care
-      light: "#FFB3C1", // Lighter pink tint
-      lighter: "#FFF0F3", // Ultra-light pink background
-      accent: "#30D158", // Green accent for natural soothing
-      background: "#F2F2F7",
-    },
-    darkSpot: {
-      primary: "#FFCC02", // Bright yellow for brightening
-      secondary: "#FF9500", // Orange for active treatment
-      light: "#FFE066", // Lighter yellow tint
-      lighter: "#FFF9E6", // Ultra-light yellow background
-      accent: "#AF52DE", // Purple accent for premium treatment
-      background: "#F2F2F7",
+    treatment: {
+      primary: "#1E4A68", // Deep lake blue for treatments
+      light: "#2B5A7A", // Glacial blue
+      lighter: "#E8F1F7", // Ultra-light blue background
+      accent: "#E1A85F", // Golden dawn accent
+      background: "#FFFFFF",
     },
   },
 
-  // Apple-Style Semantic Colors (for UI states)
+  // Semantic colors for feedback and states
   semantic: {
-    success: "#30D158", // Apple's success green
-    warning: "#FF9500", // Apple's warning orange
-    error: "#FF3B30", // Apple's error red
-    info: "#007AFF", // Apple's info blue
-    purple: "#AF52DE", // Apple's purple for premium
+    success: "#2B5A7A", // Glacial blue for success
+    warning: "#E1A85F", // Golden dawn for warnings
+    error: "#C67B7B", // Muted red for errors (maintaining accessibility)
+    info: "#1E4A68", // Deep lake blue for information
+
+    // Background variants
+    successBg: "#E8F1F7",
+    warningBg: "#FDF6EC",
+    errorBg: "#F7F0F0",
+    infoBg: "#E8F1F7",
   },
 
-  // Apple-Inspired Gradients (subtle and sophisticated)
-  gradients: {
-    hero: "linear-gradient(135deg, #F5F5F7 0%, #FBFBFD 100%)", // Apple's clean gradient
-    productCard: "linear-gradient(180deg, #FBFBFD 0%, #F2F2F7 100%)", // Card depth
-    cta: "linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%)", // Apple blue gradient
-    ctaOrange: "linear-gradient(135deg, #FF9500 0%, #FFCC02 100%)", // Energetic gradient
-    hydration: "linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%)", // Hydration blue
-    premium: "linear-gradient(135deg, #AF52DE 0%, #FF6482 100%)", // Premium gradient
-    natural: "linear-gradient(135deg, #30D158 0%, #7DE680 100%)", // Natural green
-    energy: "linear-gradient(135deg, #FF9500 0%, #FFCC02 100%)", // Energy gradient
+  // Surface colors for cards, modals, etc.
+  surfaces: {
+    primary: "#FFFFFF", // Primary surface - pure white
+    secondary: "#F8F9FA", // Secondary surface - mist white
+    tertiary: "#D9C7A2", // Tertiary surface - sandy beige
+    overlay: "rgba(30, 74, 104, 0.4)", // Modal overlays in lake blue
+    border: "#E6D4B7", // Warm sand borders
+    divider: "#A8A8A5", // Cool stone dividers
   },
 
-  // Apple-Style Interactive States
-  interactive: {
-    // Button states
-    buttonPrimary: "#007AFF",
-    buttonPrimaryHover: "#0051D5",
-    buttonPrimaryPressed: "#004799",
-    buttonSecondary: "#8E8E93",
-    buttonSecondaryHover: "#636366",
-    
-    // Link states
-    linkDefault: "#007AFF",
-    linkHover: "#0051D5",
-    linkPressed: "#004799",
-    
-    // Selection states
-    selectionBackground: "#007AFF",
-    selectionText: "#FFFFFF",
-    
-    // Focus states
-    focusRing: "#007AFF",
-  },
-
-  // Apple-Style Elevation & Shadows
+  // Elevation and shadows (soft diffused like mountain sunlight)
   elevation: {
-    card: "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
-    cardHover: "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)",
-    modal: "0 10px 25px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)",
-    dropdown: "0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08)",
-  }
-} as const;
+    low: "0 1px 3px rgba(30, 74, 104, 0.08)",
+    medium: "0 4px 12px rgba(30, 74, 104, 0.12)",
+    high: "0 8px 24px rgba(30, 74, 104, 0.16)",
+  },
+
+  // Gradients inspired by Tso Moriri transitions
+  gradients: {
+    hero: "linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%)",
+    card: "linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%)",
+    subtle: "linear-gradient(135deg, #F8F9FA 0%, #D9C7A2 100%)",
+    brand: "linear-gradient(135deg, #1E4A68 0%, #2B5A7A 100%)",
+    dawn: "linear-gradient(135deg, #E1A85F 0%, #F4C27D 100%)",
+  },
+};
+
+// Design tokens following the 4px grid system with 6px radius
+export const spacing = {
+  xs: "4px",
+  sm: "8px",
+  md: "16px",
+  lg: "24px",
+  xl: "32px",
+  xxl: "64px",
+};
+
+export const borderRadius = {
+  sm: "3px",
+  md: "6px", // TSO's signature radius - cleaner than Ursa Major's 8px
+  lg: "12px",
+  xl: "18px",
+  full: "50%",
+};
+
+export const typography = {
+  fontFamily: {
+    serif: '"Playfair Display", "Freight Display", "Georgia", serif', // Elegant serif for headings
+    sans: '"Inter", "Proxima Nova", sans-serif', // Clean sans for body text
+  },
+  fontSize: {
+    caption: "14px",
+    body: "16px",
+    bodyLarge: "18px",
+    h3: "28px",
+    h2: "36px",
+    h1: "48px",
+  },
+  fontWeight: {
+    normal: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
+  },
+  lineHeight: {
+    tight: "1.2",
+    normal: "1.5",
+    relaxed: "1.6",
+  },
+};
 
 // Product category mapping for easy access
 export const productCategories = {
@@ -176,14 +168,11 @@ export const productCategories = {
   serum: "serum",
   moisturizer: "moisturizer",
   sunscreen: "sunscreen",
-  "hydrating-serum": "hydratingSerum",
-  "brightening-serum": "brighteningSerum",
-  "oil-free-moisturizer": "oilFreeMoisturizer",
-  "acne-control": "acneControl",
-  "anti-aging": "antiAging",
-  "soothing-serum": "soothing",
-  "dark-spot-serum": "darkSpot",
+  treatment: "treatment",
 } as const;
 
 export type ProductCategory = keyof typeof productCategories;
 export type ProductCategoryKey = (typeof productCategories)[ProductCategory];
+
+// Export default for easy importing
+export default colors;

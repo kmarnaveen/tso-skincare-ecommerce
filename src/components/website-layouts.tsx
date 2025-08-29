@@ -1,35 +1,51 @@
-// Website Layout Components for Tso Skincare
-'use client'
+// Website Layout Components for Tso
+"use client";
 
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Card, CardContent } from '@/components/ui/card'
-import { 
-  ShoppingBag, 
-  User, 
-  Search, 
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  ShoppingBag,
+  User,
+  Search,
   Menu,
   Instagram,
   Facebook,
-  Twitter
-} from 'lucide-react'
-import { colors } from '@/styles/colors'
-import { useCart } from '@/hooks/useCart'
-import Link from 'next/link'
+  Twitter,
+} from "lucide-react";
+import { colors } from "@/styles/colors";
+import { useCart } from "@/hooks/useCart";
+import Link from "next/link";
 
 // Navigation Component
 export const Navigation = () => {
-  const { itemCount, toggleCart } = useCart()
-  
+  const { itemCount, toggleCart } = useCart();
+
   const navItems = [
-    { name: 'Products', href: '/products' },
-    { name: 'Cleanser', href: '/categories/cleanser', accent: colors.products.cleanser.primary },
-    { name: 'Serum', href: '/categories/serum', accent: colors.products.serum.primary },
-    { name: 'Moisturizer', href: '/categories/moisturizer', accent: colors.products.moisturizer.primary },
-    { name: 'Sunscreen', href: '/categories/sunscreen', accent: colors.products.sunscreen.primary },
-    { name: 'About', href: '/about' },
-  ]
+    { name: "Products", href: "/products" },
+    {
+      name: "Cleanser",
+      href: "/categories/cleanser",
+      accent: colors.products.cleanser.primary,
+    },
+    {
+      name: "Serum",
+      href: "/categories/serum",
+      accent: colors.products.serum.primary,
+    },
+    {
+      name: "Moisturizer",
+      href: "/categories/moisturizer",
+      accent: colors.products.moisturizer.primary,
+    },
+    {
+      name: "Sunscreen",
+      href: "/categories/sunscreen",
+      accent: colors.products.sunscreen.primary,
+    },
+    { name: "About", href: "/about" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 glass-nav">
@@ -42,17 +58,17 @@ export const Navigation = () => {
             className="flex items-center space-x-2"
           >
             <Link href="/" className="flex items-center space-x-2">
-              <div 
+              <div
                 className="w-10 h-10 rounded-full flex items-center justify-center glass-button floating-element"
-                style={{ backgroundColor: colors.global.turmericGold + '80' }}
+                style={{ backgroundColor: colors.brand.goldenDawn + "80" }}
               >
                 <span className="text-white font-bold text-lg">T</span>
               </div>
-              <span 
+              <span
                 className="text-2xl font-bold"
-                style={{ color: colors.global.charcoalGrey }}
+                style={{ color: colors.text.primary }}
               >
-                Tso Skincare
+                Tso
               </span>
             </Link>
           </motion.div>
@@ -69,11 +85,11 @@ export const Navigation = () => {
                 <Link
                   href={item.href}
                   className="text-sm font-medium transition-colors hover:opacity-75 relative group"
-                  style={{ color: colors.global.charcoalGrey }}
+                  style={{ color: colors.text.primary }}
                 >
                   {item.name}
                   {item.accent && (
-                    <div 
+                    <div
                       className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
                       style={{ backgroundColor: item.accent }}
                     />
@@ -85,37 +101,49 @@ export const Navigation = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="glass-subtle hover:glass rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="glass-subtle hover:glass rounded-full"
+            >
               <Search className="w-4 h-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="glass-subtle hover:glass rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="glass-subtle hover:glass rounded-full"
+            >
               <User className="w-4 h-4" />
             </Button>
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               className="glass-subtle hover:glass rounded-full relative"
               onClick={toggleCart}
             >
               <ShoppingBag className="w-4 h-4" />
               {itemCount > 0 && (
-                <span 
+                <span
                   className="absolute -top-1 -right-1 w-5 h-5 text-xs font-bold text-white rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: colors.global.turmericGold }}
+                  style={{ backgroundColor: colors.brand.goldenDawn }}
                 >
                   {itemCount}
                 </span>
               )}
             </Button>
-            <Button variant="ghost" size="sm" className="md:hidden glass-subtle hover:glass rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden glass-subtle hover:glass rounded-full"
+            >
               <Menu className="w-4 h-4" />
             </Button>
           </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 // Footer Component
 export const Footer = () => {
@@ -126,17 +154,17 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div 
+              <div
                 className="w-8 h-8 rounded-full flex items-center justify-center glass-button floating-element"
-                style={{ backgroundColor: colors.global.turmericGold + '80' }}
+                style={{ backgroundColor: colors.brand.goldenDawn + "80" }}
               >
                 <span className="text-white font-bold">T</span>
               </div>
-              <span 
+              <span
                 className="text-xl font-bold"
-                style={{ color: colors.global.charcoalGrey }}
+                style={{ color: colors.text.primary }}
               >
-                Tso Skincare
+                Tso
               </span>
             </div>
             <p className="text-gray-600 text-sm">
@@ -150,9 +178,12 @@ export const Footer = () => {
                   href="#"
                   whileHover={{ y: -2 }}
                   className="p-2 rounded-full transition-colors"
-                  style={{ backgroundColor: colors.global.mistyBlue + '20' }}
+                  style={{ backgroundColor: colors.brand.glacialBlue + "20" }}
                 >
-                  <Icon className="w-4 h-4" style={{ color: colors.global.charcoalGrey }} />
+                  <Icon
+                    className="w-4 h-4"
+                    style={{ color: colors.text.primary }}
+                  />
                 </motion.a>
               ))}
             </div>
@@ -160,49 +191,98 @@ export const Footer = () => {
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-semibold mb-4" style={{ color: colors.global.charcoalGrey }}>
+            <h4
+              className="font-semibold mb-4"
+              style={{ color: colors.text.primary }}
+            >
               Shop
             </h4>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li><a href="#" className="hover:opacity-75">All Products</a></li>
-              <li><a href="#" className="hover:opacity-75">Cleansers</a></li>
-              <li><a href="#" className="hover:opacity-75">Serums</a></li>
-              <li><a href="#" className="hover:opacity-75">Moisturizers</a></li>
-              <li><a href="#" className="hover:opacity-75">Sun Protection</a></li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  All Products
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Cleansers
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Serums
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Moisturizers
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Sun Protection
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Support Links */}
           <div>
-            <h4 className="font-semibold mb-4" style={{ color: colors.global.charcoalGrey }}>
+            <h4
+              className="font-semibold mb-4"
+              style={{ color: colors.text.primary }}
+            >
               Support
             </h4>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li><a href="#" className="hover:opacity-75">Contact Us</a></li>
-              <li><a href="#" className="hover:opacity-75">Shipping Info</a></li>
-              <li><a href="#" className="hover:opacity-75">Returns</a></li>
-              <li><a href="#" className="hover:opacity-75">Size Guide</a></li>
-              <li><a href="#" className="hover:opacity-75">FAQ</a></li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Shipping Info
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Returns
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  Size Guide
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:opacity-75">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-semibold mb-4" style={{ color: colors.global.charcoalGrey }}>
+            <h4
+              className="font-semibold mb-4"
+              style={{ color: colors.text.primary }}
+            >
               Stay Connected
             </h4>
             <p className="text-sm text-gray-600 mb-4">
               Get skincare tips and exclusive offers
             </p>
             <div className="space-y-2">
-              <Input 
+              <Input
                 placeholder="Your email address"
                 className="text-sm"
-                style={{ borderColor: colors.global.mistyBlue }}
+                style={{ borderColor: colors.brand.glacialBlue }}
               />
-              <Button 
+              <Button
                 className="w-full text-white font-medium"
-                style={{ backgroundColor: colors.global.turmericGold }}
+                style={{ backgroundColor: colors.brand.goldenDawn }}
               >
                 Subscribe
               </Button>
@@ -211,32 +291,43 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center"
-             style={{ borderColor: colors.global.mistyBlue + '40' }}>
+        <div
+          className="border-t pt-8 flex flex-col md:flex-row justify-between items-center"
+          style={{ borderColor: colors.brand.glacialBlue + "40" }}
+        >
           <p className="text-sm text-gray-600 mb-4 md:mb-0">
-            © 2025 Tso Skincare. All rights reserved.
+            © 2025 Tso. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-gray-600">
-            <a href="#" className="hover:opacity-75">Privacy Policy</a>
-            <a href="#" className="hover:opacity-75">Terms of Service</a>
-            <a href="#" className="hover:opacity-75">Cookie Policy</a>
+            <a href="#" className="hover:opacity-75">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:opacity-75">
+              Terms of Service
+            </a>
+            <a href="#" className="hover:opacity-75">
+              Cookie Policy
+            </a>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 // Product Detail Page Component
 interface ProductDetailProps {
-  category: keyof typeof colors.products
+  category: keyof typeof colors.products;
 }
 
 export const ProductDetailLayout = ({ category }: ProductDetailProps) => {
-  const categoryColors = colors.products[category]
-  
+  const categoryColors = colors.products[category];
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: colors.global.offWhite }}>
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: colors.brand.mistWhite }}
+    >
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
@@ -245,12 +336,12 @@ export const ProductDetailLayout = ({ category }: ProductDetailProps) => {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-4"
           >
-            <div 
+            <div
               className="aspect-square rounded-lg p-8 flex items-center justify-center"
               style={{ backgroundColor: categoryColors.lighter }}
             >
               <div className="text-center">
-                <div 
+                <div
                   className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center"
                   style={{ backgroundColor: categoryColors.primary }}
                 >
@@ -268,36 +359,48 @@ export const ProductDetailLayout = ({ category }: ProductDetailProps) => {
             className="space-y-6"
           >
             <div>
-              <div 
+              <div
                 className="inline-block px-3 py-1 rounded-full text-sm font-medium text-white mb-4"
                 style={{ backgroundColor: categoryColors.primary }}
               >
-                {category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                {category
+                  .replace(/([A-Z])/g, " $1")
+                  .replace(/^./, (str) => str.toUpperCase())}
               </div>
-              <h1 className="text-4xl font-bold mb-4" style={{ color: colors.global.charcoalGrey }}>
-                Premium {category.replace(/([A-Z])/g, ' $1')}
+              <h1
+                className="text-4xl font-bold mb-4"
+                style={{ color: colors.text.primary }}
+              >
+                Premium {category.replace(/([A-Z])/g, " $1")}
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                Experience the perfect blend of nature and science in this carefully formulated product.
+                Experience the perfect blend of nature and science in this
+                carefully formulated product.
               </p>
-              <div className="text-3xl font-bold mb-6" style={{ color: colors.global.charcoalGrey }}>
+              <div
+                className="text-3xl font-bold mb-6"
+                style={{ color: colors.text.primary }}
+              >
                 $45.00
               </div>
             </div>
 
             <div className="space-y-4">
-              <Button 
+              <Button
                 size="lg"
                 className="w-full text-white font-semibold py-4"
                 style={{ backgroundColor: categoryColors.primary }}
               >
                 Add to Cart
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 size="lg"
                 className="w-full"
-                style={{ borderColor: categoryColors.primary, color: categoryColors.primary }}
+                style={{
+                  borderColor: categoryColors.primary,
+                  color: categoryColors.primary,
+                }}
               >
                 Add to Wishlist
               </Button>
@@ -306,7 +409,10 @@ export const ProductDetailLayout = ({ category }: ProductDetailProps) => {
             {/* Product Benefits */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-semibold mb-4" style={{ color: colors.global.charcoalGrey }}>
+                <h3
+                  className="font-semibold mb-4"
+                  style={{ color: colors.text.primary }}
+                >
                   Key Benefits
                 </h3>
                 <ul className="space-y-2 text-gray-600">
@@ -321,25 +427,31 @@ export const ProductDetailLayout = ({ category }: ProductDetailProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // Category Page Layout
 interface CategoryPageProps {
-  category: keyof typeof colors.products
-  products: Array<{ id: string; name: string; price: number }>
+  category: keyof typeof colors.products;
+  products: Array<{ id: string; name: string; price: number }>;
 }
 
-export const CategoryPageLayout = ({ category, products }: CategoryPageProps) => {
-  const categoryColors = colors.products[category]
-  
+export const CategoryPageLayout = ({
+  category,
+  products,
+}: CategoryPageProps) => {
+  const categoryColors = colors.products[category];
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: colors.global.offWhite }}>
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: colors.brand.mistWhite }}
+    >
       {/* Category Header */}
-      <div 
+      <div
         className="py-16 px-4"
-        style={{ 
-          background: `linear-gradient(135deg, ${categoryColors.lighter} 0%, ${colors.global.offWhite} 100%)`
+        style={{
+          background: `linear-gradient(135deg, ${categoryColors.lighter} 0%, ${colors.brand.mistWhite} 100%)`,
         }}
       >
         <div className="max-w-6xl mx-auto text-center">
@@ -347,18 +459,23 @@ export const CategoryPageLayout = ({ category, products }: CategoryPageProps) =>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div 
+            <div
               className="inline-block px-4 py-2 rounded-full text-white font-medium mb-6"
               style={{ backgroundColor: categoryColors.primary }}
             >
-              {category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+              {category
+                .replace(/([A-Z])/g, " $1")
+                .replace(/^./, (str) => str.toUpperCase())}
             </div>
-            <h1 className="text-5xl font-bold mb-6" style={{ color: colors.global.charcoalGrey }}>
-              {category.replace(/([A-Z])/g, ' $1')} Collection
+            <h1
+              className="text-5xl font-bold mb-6"
+              style={{ color: colors.text.primary }}
+            >
+              {category.replace(/([A-Z])/g, " $1")} Collection
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our carefully curated selection of premium skincare products
-              designed to nourish and protect your skin.
+              Discover our carefully curated selection of premium skincare
+              products designed to nourish and protect your skin.
             </p>
           </motion.div>
         </div>
@@ -369,14 +486,14 @@ export const CategoryPageLayout = ({ category, products }: CategoryPageProps) =>
         <div className="max-w-6xl mx-auto">
           {/* Filter Bar */}
           <div className="flex flex-wrap gap-4 mb-8">
-            {['All', 'Best Sellers', 'New Arrivals', 'Sale'].map((filter) => (
+            {["All", "Best Sellers", "New Arrivals", "Sale"].map((filter) => (
               <Button
                 key={filter}
                 variant="outline"
                 className="border-2"
-                style={{ 
+                style={{
                   borderColor: categoryColors.light,
-                  color: colors.global.charcoalGrey 
+                  color: colors.text.primary,
                 }}
               >
                 {filter}
@@ -395,11 +512,11 @@ export const CategoryPageLayout = ({ category, products }: CategoryPageProps) =>
                 className="group cursor-pointer"
               >
                 <Card className="overflow-hidden transition-all duration-300 group-hover:shadow-lg">
-                  <div 
+                  <div
                     className="aspect-square p-8 flex items-center justify-center"
                     style={{ backgroundColor: categoryColors.lighter }}
                   >
-                    <div 
+                    <div
                       className="w-16 h-16 rounded-full flex items-center justify-center"
                       style={{ backgroundColor: categoryColors.primary }}
                     >
@@ -407,10 +524,16 @@ export const CategoryPageLayout = ({ category, products }: CategoryPageProps) =>
                     </div>
                   </div>
                   <CardContent className="p-4">
-                    <h3 className="font-semibold mb-2" style={{ color: colors.global.charcoalGrey }}>
+                    <h3
+                      className="font-semibold mb-2"
+                      style={{ color: colors.text.primary }}
+                    >
                       {product.name}
                     </h3>
-                    <p className="text-lg font-bold" style={{ color: categoryColors.primary }}>
+                    <p
+                      className="text-lg font-bold"
+                      style={{ color: categoryColors.primary }}
+                    >
                       ${product.price}
                     </p>
                   </CardContent>
@@ -421,5 +544,5 @@ export const CategoryPageLayout = ({ category, products }: CategoryPageProps) =>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

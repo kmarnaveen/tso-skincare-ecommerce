@@ -1,6 +1,6 @@
-# Tso Skincare - Nature-Inspired Website with Next.js
+# Tso - Nature-Inspired Website with Next.js
 
-This is a comprehensive **Tso Skincare website** built with [Next.js](https://nextjs.org) and enhanced with a complete **nature-inspired color strategy**. The project demonstrates a modern e-commerce skincare website with product categorization, color-coded UI elements, and a seamless design system.
+This is a comprehensive **Tso website** built with [Next.js](https://nextjs.org) and enhanced with a complete **nature-inspired color strategy**. The project demonstrates a modern e-commerce skincare website with product categorization, color-coded UI elements, and a seamless design system.
 
 ## 🎨 **Nature-Inspired Color Strategy**
 
@@ -77,7 +77,7 @@ npm run dev
 ```
 
 3. **Open your browser:**
-Visit [http://localhost:3000](http://localhost:3000) to see the Tso Skincare website.
+Visit [http://localhost:3000](http://localhost:3000) to see the Tso website.
 
 ## 📁 Project Structure
 
@@ -85,7 +85,7 @@ Visit [http://localhost:3000](http://localhost:3000) to see the Tso Skincare web
 src/
 ├── app/
 │   ├── layout.tsx              # Root layout with providers
-│   ├── page.tsx                # Homepage with Tso Skincare demo
+│   ├── page.tsx                # Homepage with Tso demo
 │   └── globals.css             # Global styles with color system
 ├── components/
 │   ├── ui/                     # Shadcn UI components
@@ -157,7 +157,7 @@ See [`TSO_SKINCARE_COLOR_STRATEGY.md`](./TSO_SKINCARE_COLOR_STRATEGY.md) for com
 
 ## 🚢 Deploy on Vercel
 
-The easiest way to deploy this Tso Skincare website is to use the [Vercel Platform](https://vercel.com/new) from the creators of Next.js.
+The easiest way to deploy this Tso website is to use the [Vercel Platform](https://vercel.com/new) from the creators of Next.js.
 
 ---
 

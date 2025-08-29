@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <div
       className="min-h-screen"
-      style={{ backgroundColor: colors.global.offWhite }}
+      style={{ backgroundColor: colors.brand.mistWhite }}
     >
       <Navigation />
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <section
         className="py-20 px-4"
         style={{
-          background: `linear-gradient(135deg, ${colors.global.softSandBeige} 0%, ${colors.global.offWhite} 100%)`,
+          background: `linear-gradient(135deg, ${colors.brand.sandyBeige} 0%, ${colors.brand.mistWhite} 100%)`,
         }}
       >
         <div className="max-w-6xl mx-auto text-center">
@@ -36,14 +36,14 @@ export default function AboutPage() {
           >
             <h1
               className="text-5xl font-bold mb-6"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
-              About Tso Skincare
+              About Tso
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Born from a passion for natural beauty and sustainable skincare,
-              Tso Skincare combines traditional botanicals with modern science
-              to create products that nurture both your skin and the planet.
+              Tso combines traditional botanicals with modern science to create
+              products that nurture both your skin and the planet.
             </p>
           </motion.div>
         </div>
@@ -59,18 +59,18 @@ export default function AboutPage() {
             >
               <h2
                 className="text-3xl font-bold mb-6"
-                style={{ color: colors.global.charcoalGrey }}
+                style={{ color: colors.text.primary }}
               >
                 Our Story
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Founded in 2020, Tso Skincare emerged from a simple belief:
-                  that effective skincare shouldn't come at the cost of our
-                  planet's wellbeing. Our founder, inspired by traditional
-                  Ayurvedic practices and modern dermatological research, set
-                  out to create a brand that honors both ancient wisdom and
-                  scientific innovation.
+                  Founded in 2020, Tso emerged from a simple belief: that
+                  effective skincare shouldn't come at the cost of our planet's
+                  wellbeing. Our founder, inspired by traditional Ayurvedic
+                  practices and modern dermatological research, set out to
+                  create a brand that honors both ancient wisdom and scientific
+                  innovation.
                 </p>
                 <p>
                   Every product in our collection is carefully formulated with
@@ -79,9 +79,8 @@ export default function AboutPage() {
                   responsibility.
                 </p>
                 <p>
-                  Today, Tso Skincare is trusted by thousands of customers who
-                  share our vision of clean, effective, and consciously crafted
-                  skincare.
+                  Today, Tso is trusted by thousands of customers who share our
+                  vision of clean, effective, and consciously crafted skincare.
                 </p>
               </div>
             </motion.div>
@@ -105,7 +104,7 @@ export default function AboutPage() {
       {/* Our Values */}
       <section
         className="py-16 px-4"
-        style={{ backgroundColor: colors.global.softSandBeige }}
+        style={{ backgroundColor: colors.brand.sandyBeige }}
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -115,7 +114,7 @@ export default function AboutPage() {
           >
             <h2
               className="text-3xl font-bold mb-4"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
               Our Values
             </h2>
@@ -153,14 +152,14 @@ export default function AboutPage() {
                 title: "Community First",
                 description:
                   "Our customers are our family. We listen, learn, and grow together, building products that truly serve your skincare needs.",
-                color: colors.global.turmericGold,
+                color: colors.brand.goldenDawn,
               },
               {
                 icon: Award,
                 title: "Quality Excellence",
                 description:
                   "We never compromise on quality. Every product undergoes rigorous testing to ensure safety, efficacy, and the highest standards.",
-                color: colors.products.soothing.primary,
+                color: colors.products.treatment.primary,
               },
               {
                 icon: Sparkles,
@@ -229,14 +228,14 @@ export default function AboutPage() {
             >
               <h2
                 className="text-3xl font-bold mb-6"
-                style={{ color: colors.global.charcoalGrey }}
+                style={{ color: colors.text.primary }}
               >
                 Our Commitment to You
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  At Tso Skincare, we promise to deliver products that are not
-                  only effective but also safe, sustainable, and thoughtfully
+                  At Tso, we promise to deliver products that are not only
+                  effective but also safe, sustainable, and thoughtfully
                   crafted. We believe that great skincare should enhance your
                   natural beauty while respecting the environment.
                 </p>
@@ -258,7 +257,7 @@ export default function AboutPage() {
                   <Button
                     size="lg"
                     className="text-white font-medium"
-                    style={{ backgroundColor: colors.global.turmericGold }}
+                    style={{ backgroundColor: colors.brand.goldenDawn }}
                   >
                     Explore Our Products
                   </Button>
@@ -272,7 +271,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section
         className="py-16 px-4"
-        style={{ backgroundColor: colors.global.softSandBeige }}
+        style={{ backgroundColor: colors.brand.sandyBeige }}
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -282,7 +281,7 @@ export default function AboutPage() {
           >
             <h2
               className="text-3xl font-bold mb-4"
-              style={{ color: colors.global.charcoalGrey }}
+              style={{ color: colors.text.primary }}
             >
               Our Impact
             </h2>
@@ -307,7 +306,7 @@ export default function AboutPage() {
               >
                 <div
                   className="text-4xl font-bold mb-2"
-                  style={{ color: colors.global.turmericGold }}
+                  style={{ color: colors.brand.goldenDawn }}
                 >
                   {stat.number}
                 </div>
